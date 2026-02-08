@@ -1,2 +1,2 @@
-# ch-boot-dev
-repository for boot.dev learning
+# bootdev-asteroids
+Repo for the Asteroids python project on boot.dev.
