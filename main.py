@@ -42,12 +42,15 @@ def main():
             item.draw(screen)
 
         for ast in asteroids:
-            collision = ast.collides_with(player)
-             # note: could just do an if here without creating a new variable above
-            if collision:
+            if ast.collides_with(player):
                 log_event("player_hit")
-                print("Game over!")
+                font = pygame.font.Font(None, 74)  # None = default font, 74 = size
+                text_surface = font.render("Game Over!", True, "white")  # True = anti-aliasing, "white" = color
+                screen.blit(text_surface, (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))  # blit means "draw this surface onto the screen"
+                pygame.display.flip()
+                pygame.time.wait(3000)
                 sys.exit()
+                
             
         for ast in asteroids:
             for shot in shots:
